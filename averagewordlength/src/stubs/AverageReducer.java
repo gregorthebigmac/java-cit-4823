@@ -10,7 +10,12 @@ public class AverageReducer extends Reducer<Text, IntWritable, Text, DoubleWrita
 
   @Override
   public void reduce(Text key, Iterable<IntWritable> values, Context context)
-      throws IOException, InterruptedException {
-        
+  	throws IOException, InterruptedException {
+        String line = value.toString();
+		for (String word : line.split("\\W+")) {
+			if (word.length() > 0) {
+				context.write(new Text(word), new IntWritable);
+			}
+		}
   }
 }

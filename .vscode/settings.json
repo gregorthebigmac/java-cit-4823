@@ -2,5 +2,6 @@
 	"editor.fontSize": 12,
 	"editor.acceptSuggestionOnEnter": "off",
 	"editor.detectIndentation": false,
-	"editor.tabCompletion": "on"
+	"editor.tabCompletion": "on",
+	"maven.executable.path": "/usr/share/maven/"
 }
