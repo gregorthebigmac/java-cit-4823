@@ -11,7 +11,7 @@ public class AverageReducer extends Reducer<Text, IntWritable, Text, DoubleWrita
 	public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
 		long sum = 0;
 		long count = 0;
-		for (IntWritable values: values) {
+		for (IntWritable value : values) {
 			sum = sum + values.get();
 			count++;
 		}
