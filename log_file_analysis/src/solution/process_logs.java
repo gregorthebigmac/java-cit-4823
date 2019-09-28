@@ -6,14 +6,14 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.Job;
 
-public class ProcessLogs {
+public class process_logs {
 	public static void main(String[] args) throws Exception {
     	if (args.length != 2) {
-			System.out.println("Usage: ProcessLogs <input dir> <output dir>");
+			System.out.println("Usage: process_logs <input dir> <output dir>");
 			System.exit(-1);
 		}
 		Job job = Job.getInstance();
-		job.setJarByClass(ProcessLogs.class);
+		job.setJarByClass(process_logs.class);
 		job.setJobName("Process Logs");
 		
 		FileInputFormat.setInputPaths(job, new Path(args[0]));
