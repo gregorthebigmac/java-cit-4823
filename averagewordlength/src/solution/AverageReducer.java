@@ -1,6 +1,5 @@
-package stubs;
+package solution;
 import java.io.IOException;
-
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -15,7 +14,9 @@ public class AverageReducer extends Reducer<Text, IntWritable, Text, DoubleWrita
 			sum += value.get();
 			count++;
 		}
-		if (count > 0)
-			context.write(key, new DoubleWritable((double)sum / (double)count));
+		if (count != 0) {
+			double result = (double)sum / (double)count;
+			context.write(key, new DoubleWritable(result));
+		}
 	}
 }
