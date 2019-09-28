@@ -3,5 +3,6 @@
 	"editor.acceptSuggestionOnEnter": "off",
 	"editor.detectIndentation": false,
 	"editor.tabCompletion": "on",
-	"maven.executable.path": "/usr/share/maven/"
+	"maven.executable.path": "/usr/share/maven/",
+	"editor.insertSpaces": false
 }
