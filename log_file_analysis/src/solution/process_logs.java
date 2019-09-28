@@ -19,8 +19,8 @@ public class process_logs {
 		FileInputFormat.setInputPaths(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
-		job.setMapperClass(LogFileMapper.class);
-		job.setReducerClass(SumReducer.class);
+		job.setMapperClass(log_file_mapper.class);
+		job.setReducerClass(sum_reducer.class);
 
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
