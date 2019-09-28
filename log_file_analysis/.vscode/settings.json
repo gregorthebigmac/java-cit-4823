@@ -1,0 +1,12 @@
+{
+	"editor.fontSize": 12,
+	"editor.insertSpaces": false,
+	"editor.autoClosingBrackets": "always",
+	"editor.autoClosingOvertype": "always",
+	"editor.autoClosingQuotes": "always",
+	"editor.detectIndentation": false,
+	"editor.acceptSuggestionOnEnter": "off",
+	"editor.tabCompletion": "on",
+	"maven.executable.path": "/etc/maven",
+	"markdown-preview-enhanced.enableExtendedTableSyntax": true
+}
