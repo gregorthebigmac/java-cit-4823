@@ -9,10 +9,10 @@ import org.apache.hadoop.mapreduce.Reducer;
 public class sum_reducer extends Reducer<Text, IntWritable, Text, IntWritable> {
 	@Override
 	public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
-		int wordCount = 0;
+		int word_count = 0;
 		for (IntWritable value : values) {
-			wordCount += value.get();
+			word_count += value.get();
 		}
-		context.write(key, new IntWritable(wordCount));
+		context.write(key, new IntWritable(word_count));
 	}
 }
