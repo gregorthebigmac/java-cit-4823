@@ -12,28 +12,28 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-public class AvgWordLength extends Configured implements Tool {
+public class avg_word_length extends Configured implements Tool {
 	public static void main(String[] args) throws Exception {
 		Configuration conf = new Configuration();
-		int exitCode = ToolRunner.run(conf, new AvgWordLength(), args);
+		int exitCode = ToolRunner.run(conf, new avg_word_length(), args);
 		System.exit(exitCode);
 	}
 	@Override
 	public int run(String[] args) throws Exception {
 		if (args.length != 2) {
-			System.out.printf("Usage: AvgWordLength <input dir> <output dir>\n");
+			System.out.printf("Usage: avg_word_length <input dir> <output dir>\n");
 			System.exit(-1);
 		}
 		Job job = Job.getInstance(getConf());
 		
-		job.setJarByClass(AvgWordLength.class);
+		job.setJarByClass(avg_word_length.class);
 		job.setJobName("Average Word Length");
 		
 		FileInputFormat.setInputPaths(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 		
-		job.setMapperClass(LetterMapper.class);
-		job.setReducerClass(AverageReducer.class);
+		job.setMapperClass(letter_mapper.class);
+		job.setReducerClass(average_reducer.class);
 		
 		job.setMapOutputKeyClass(Text.class);
 		job.setMapOutputValueClass(IntWritable.class);

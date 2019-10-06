@@ -8,7 +8,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.conf.Configuration;
 
-public class LetterMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+public class letter_mapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 	boolean caseSensitive = false;
 	@Override
 	public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {

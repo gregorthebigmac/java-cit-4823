@@ -7,7 +7,7 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class AverageReducer extends Reducer<Text, IntWritable, Text, DoubleWritable> {
+public class average_reducer extends Reducer<Text, IntWritable, Text, DoubleWritable> {
 	@Override
 	public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
 		long sum = 0, count = 0;
