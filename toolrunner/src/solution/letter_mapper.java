@@ -16,8 +16,10 @@ public class letter_mapper extends Mapper<LongWritable, Text, Text, IntWritable>
 		for (String word : line.split("\\W+")) {
 			if (word.length() > 0) {
 				String letter;
-				if (caseSensitive) { letter = word.substring(0, 1); }
-				else { letter = word.substring(0, 1).toLowerCase(); }
+				if (caseSensitive)
+					letter = word.substring(0, 1);
+				else
+					letter = word.substring(0, 1).toLowerCase();
 				context.write(new Text(letter), new IntWritable(word.length()));
 			}
 		}
