@@ -17,7 +17,6 @@ public class image_counter extends Configured implements Tool {
 			System.out.println("Usage: image_counter [input/dir] [output/dir]");
 			return -1;
 		}
-	
 		Job job = Job.getInstance();
 		job.setJarByClass(image_counter.class);
 		job.setJobName("image_counter");
