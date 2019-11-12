@@ -7,7 +7,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
 public class image_counter_mapper extends Mapper<LongWritable, Text, Text, IntWritable> {
-	@Override public void map(LongWritable key, Text value, Context context) throws Exception, InterruptedException {
+	@Override public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 		String[] fields = value.toString().split("\"");
 		if (fields.length > 1) {
 			String request = fields[1];

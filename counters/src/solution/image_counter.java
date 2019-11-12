@@ -2,6 +2,7 @@ package solution;
 
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.Job;
@@ -11,19 +12,20 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
 public class image_counter extends Configured implements Tool {
-	@override public int run(String[] args) throws Exception {
+	@Override public int run(String[] args) throws Exception {
 		if (args.length != 2) {
 			System.out.println("Usage: image_counter [input/dir] [output/dir]");
 			return -1;
 		}
+	
 		Job job = Job.getInstance();
 		job.setJarByClass(image_counter.class);
-		job.setJobName("image counter");
+		job.setJobName("image_counter");
 		
 		FileInputFormat.setInputPaths(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 		
-		Job.setMapperClass(image_counter_mapper.class);
+		job.setMapperClass(image_counter_mapper.class);
 		
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
@@ -32,9 +34,9 @@ public class image_counter extends Configured implements Tool {
 		
 		boolean success = job.waitForCompletion(true);
 		if (success) {
-			long jpg = job.getCounters().findCounter("image counter", "jpg").getValue();
-			long gif = job.getCounters().findCounter("image counter", "gif").getValue();
-			long other = job.getCounters().findCounter("image counter", "other").getValue();
+			long jpg = job.getCounters().findCounter("image_counter", "jpg").getValue();
+			long gif = job.getCounters().findCounter("image_counter", "gif").getValue();
+			long other = job.getCounters().findCounter("image_counter", "other").getValue();
 			System.out.println("jpg = " + jpg);
 			System.out.println("gif = " + gif);
 			System.out.println("other = " + other);
